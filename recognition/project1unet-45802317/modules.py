@@ -16,6 +16,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
+# Import modules required for dataloading and processing the data loaded
+from torch.utils.data import DataLoader, Dataset
+import torchvision.transforms as transforms
+
 # Check if CUDA is available
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -31,9 +35,9 @@ if torch.cuda.is_available():
 
 """
 The next step is to create the required visualisation functions. One key
-consideration here is that the 2D Oasis data is in grayscale rather than 
+consideration here is that the 2D Oasis data is in grayscale rather than
 colour, which changes the normalisation process. To start with, will
-use 0.5 as mean value and 0.25 as standard deviation value rather than the 
+use 0.5 as mean value and 0.25 as standard deviation value rather than the
 imagenet values (which are for RGB).
 """
 
